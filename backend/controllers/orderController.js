@@ -5,9 +5,8 @@ exports.createOrder = async (req, res) => {
     try {
         const { userId, pizzas } = req.body;
         console.log("Received data:", { userId, pizzas });
-
         // Validate userId
-        const user = await prisma.user.findUnique({ where: { id: userId } });
+        const user = await prisma.user.findUnique({ where: { id: parseInt(userId, 10) } });
         if (!user) {
             console.error(`User with id ${userId} not found`);
             return res.status(400).json({ error: "Invalid userId" });
@@ -25,7 +24,7 @@ exports.createOrder = async (req, res) => {
 
         // Creating order
         const orderData = {
-            userId,
+            userId: parseInt(userId,10),
             pizzas: {
                 create: uniquePizzaIds.map(pizzaId => ({ pizzaId })),
             },
@@ -85,3 +84,34 @@ exports.getOrders = async (req, res) => {
         res.status(500).json({error: error.message});
     }
 };
+
+
+exports.getUserOrders = async (req, res) => {
+    try {
+        const userId = req.userId;
+        console.log("USER ID ",userId);
+        const orders = await prisma.order.findMany({
+            where: { userId: parseInt(userId, 10)},
+            include: {
+                pizzas: {
+                    include: {
+                        pizza: {
+                            include: {
+                                toppings: {
+                                    include: {
+                                        topping: true,
+                                    }
+                                }
+                            }
+                        }
+                    },
+                },
+                user: true,
+            },
+        });
+        res.status(200).json(orders);
+    } catch(error) {
+        res.status(500).json({error: error.message});
+    }
+};
+

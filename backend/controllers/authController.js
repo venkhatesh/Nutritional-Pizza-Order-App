@@ -12,6 +12,8 @@ exports.register = async (req, res) => {
         const user = await prisma.user.create({
             data: {name, email, password: hashedPassword},
         });
+        const token = jst.sign({userId:user.id}, JWT_SECRET, {expiresIn: '1h'} );
+        res.cookie('token',token,{httpOnly: true});
         res.status(201).json({message: 'User registered successfully'});
     } catch (error){
         console.error("Error during user registration", error); 
@@ -33,7 +35,9 @@ exports.login = async (req, res) => {
         const token = jwt.sign({userId: user.id}, process.env.JWT_SECRET, {
             expiresIn: '1h',
         });
-        res.status(200).json({token});
+        res.cookie('token',token, { httpOnly: true});
+        res.cookie('userId',user.id);
+        res.status(200).json({token,userId:user.id});
     } catch (error){
         res.status(500).json({error: error.message});
     }
