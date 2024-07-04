@@ -17,3 +17,8 @@
 2024-07-04 11:43:37 info: 2024-07-04T15:43:37.937Z POST /api/auth/login 200 62.007 ms - 166 - User: guest
 2024-07-04 11:43:38 info: 2024-07-04T15:43:38.012Z GET /api/pizzas 304 8.392 ms - - - User: 3
 2024-07-04 11:43:38 info: 2024-07-04T15:43:38.085Z GET /api/pizzas 304 59.280 ms - - - User: 3
+2024-07-04 11:54:10 info: 2024-07-04T15:54:10.463Z GET /api/pizzas 304 168.388 ms - - - User: 3
+2024-07-04 11:54:10 info: 2024-07-04T15:54:10.783Z GET /api/pizzas 304 317.937 ms - - - User: 3
+2024-07-04 11:54:23 info: 2024-07-04T15:54:23.706Z POST /api/auth/login 200 63.280 ms - 166 - User: guest
+2024-07-04 11:54:23 info: 2024-07-04T15:54:23.781Z GET /api/pizzas 304 7.281 ms - - - User: 3
+2024-07-04 11:54:23 info: 2024-07-04T15:54:23.797Z GET /api/pizzas 304 13.189 ms - - - User: 3
