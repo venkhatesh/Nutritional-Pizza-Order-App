@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const prisma = require('../prismaClient')
-
+const JWT_SECRET = process.env.JWT_SECRET;
 console.log("Prisma Client in authController",prisma);
 
 exports.register = async (req, res) => {
@@ -12,7 +12,7 @@ exports.register = async (req, res) => {
         const user = await prisma.user.create({
             data: {name, email, password: hashedPassword},
         });
-        const token = jst.sign({userId:user.id}, JWT_SECRET, {expiresIn: '1h'} );
+        const token = jwt.sign({userId:user.id}, JWT_SECRET, {expiresIn: '1h'} );
         res.cookie('token',token,{httpOnly: true});
         res.status(201).json({message: 'User registered successfully'});
     } catch (error){

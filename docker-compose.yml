@@ -5,7 +5,7 @@ services:
     image: postgres:13
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: test@123
+      POSTGRES_PASSWORD: test%40123
       POSTGRES_DB: nutritional_pizza_order_app
     volumes:
       - postgres_data:/var/lib/postgresql/data
@@ -17,7 +17,7 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      DATABASE_URL: "postgresql://postgres:test@123@postgres:5432/nutritional_pizza_order_app"
+      DATABASE_URL: "postgresql://postgres:test%40123@postgres:5432/nutritional_pizza_order_app"
       JWT_SECRET: "E8lhk3w4S3sfrV7D7eZPwBzA8U1EoF8i7+0P5TXkXoQ="
       NODE_ENV: "development"
     volumes:
@@ -27,6 +27,7 @@ services:
       - "5001:5001"
     depends_on:
       - postgres
+    entrypoint: ["./wait-for-it.sh", "postgres:5432", "--", "sh", "-c", "cd backend && npx prisma generate && npx prisma migrate deploy && node prisma/seed.js && node src/server.js"]
 
   frontend:
     build:
