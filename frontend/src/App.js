@@ -4,6 +4,7 @@ import PizzaList from './components/PizzaList';
 import CustomPizza from './components/CustomPizza';
 import Order from './components/Order';
 import Cart from './components/Cart';
+import Register from './components/Register';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import ProtectedRoute from './ProtectedRoute';
@@ -52,6 +53,7 @@ const App = () => {
               <li><Link to="/cart">Cart</Link></li>
               {/* <li><Link to="/order">Order</Link></li> */}
               <li><Link to="/my-orders">My Orders</Link></li> 
+              <li><Link to="/register">Register</Link></li>
               {userId ? (
                 <li><Link to="/logout" onClick={handleLogout}>Logout</Link></li>
               ) : (
@@ -61,6 +63,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<PizzaList />} />
             <Route path="/login" element={<Login onLogin={handleLogin} />} />
+            <Route path="/register" element={<Register />}/>
             <Route path="/logout" element={<Logout />} />
             <Route
               path="/create-pizza/:pizzaId"

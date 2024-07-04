@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: test@123
+      POSTGRES_DB: nutritional_pizza_order_app
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_URL: "postgresql://postgres:test@123@postgres:5432/nutritional_pizza_order_app"
+      JWT_SECRET: "E8lhk3w4S3sfrV7D7eZPwBzA8U1EoF8i7+0P5TXkXoQ="
+      NODE_ENV: "development"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "5001:5001"
+    depends_on:
+      - postgres
+
+  frontend:
+    build:
+      context: ./frontend
+    environment:
+      - REACT_APP_API_URL=http://localhost:5001/api
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:

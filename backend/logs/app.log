@@ -22,3 +22,15 @@
 2024-07-04 11:54:23 info: 2024-07-04T15:54:23.706Z POST /api/auth/login 200 63.280 ms - 166 - User: guest
 2024-07-04 11:54:23 info: 2024-07-04T15:54:23.781Z GET /api/pizzas 304 7.281 ms - - - User: 3
 2024-07-04 11:54:23 info: 2024-07-04T15:54:23.797Z GET /api/pizzas 304 13.189 ms - - - User: 3
+2024-07-04 11:56:22 info: 2024-07-04T15:56:22.873Z GET /api/pizzas 304 82.024 ms - - - User: 3
+2024-07-04 11:56:23 info: 2024-07-04T15:56:23.148Z GET /api/pizzas 304 271.702 ms - - - User: 3
+2024-07-04 11:56:27 info: 2024-07-04T15:56:27.941Z GET /api/pizzas 304 7.586 ms - - - User: 3
+2024-07-04 11:56:27 info: 2024-07-04T15:56:27.988Z GET /api/pizzas 304 46.010 ms - - - User: 3
+2024-07-04 11:56:29 info: 2024-07-04T15:56:29.146Z GET /api/pizzas/1 304 2.981 ms - - - User: 3
+2024-07-04 11:56:29 info: 2024-07-04T15:56:29.149Z GET /api/pizzas/1 304 1.133 ms - - - User: 3
+2024-07-04 11:56:29 info: 2024-07-04T15:56:29.154Z GET /api/toppings 304 10.234 ms - - - User: 3
+2024-07-04 11:56:29 info: 2024-07-04T15:56:29.155Z GET /api/toppings 304 0.563 ms - - - User: 3
+2024-07-04 18:50:13 info: 2024-07-04T18:50:13.414Z GET /api/pizzas 401 5.782 ms - 26 - User: guest
+2024-07-04 18:50:54 info: 2024-07-04T18:50:54.295Z POST /api/auth/login 500 5159.755 ms - 411 - User: guest
+2024-07-04 18:56:52 info: 2024-07-04T18:56:52.670Z GET /api/pizzas 401 48.886 ms - 26 - User: guest
+2024-07-04 18:57:23 info: 2024-07-04T18:57:23.266Z POST /api/auth/register 500 5216.066 ms - 459 - User: guest
