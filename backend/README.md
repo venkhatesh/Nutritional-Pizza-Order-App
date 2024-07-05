@@ -92,7 +92,7 @@ create a `.env` file in the root directory and add the following environment var
 
 2. Order Endpoints
   - Create Order
-    - Endpoint: `/api/order`
+    - Endpoint: `/api/orders/create`
     - Method: `POST`
     - Description: Create a new pizza order
     - Parameters:
@@ -166,14 +166,14 @@ create a `.env` file in the root directory and add the following environment var
         - The `pizzas` array is validated to ensure all pizza IDs exist
        
   - Get User Orders
-    - Endpoint: `/api/orders/:userId`
+    - Endpoint: `/api/orders/my-orders/:userId`
     - Method: `GET`
     - Description: Retrieve orders for the authenticated user.
     - Headers:
       - `Authorization`: Bearer `<JWT_TOKEN>`
     - Example Request:
        ```
-       GET /api/orders/user
+       GET /api/orders/:userId
        Authorization: Bearer jwt_token
        ```
     - Example Response:
@@ -237,7 +237,7 @@ create a `.env` file in the root directory and add the following environment var
          
 3. Pizza Endpoints
   - Add Pizza
-    - Endpoint: `/api/pizza`
+    - Endpoint: `/api/pizzas/add`
     - Method: `POST`
     - Description: Add a new pizza with specified toppings
     - Parameters:
@@ -289,12 +289,12 @@ create a `.env` file in the root directory and add the following environment var
           - If any validation fails, appropriate error messages are returned
              
   - Get All Pizzas
-    - Endpoint: `/api/pizzas`
+    - Endpoint: `/api/pizzas/`
     - Method: `GET`
     - Description: Retrieve all pizzas with their respective toppings
     - Example Request:
         ```
-        GET /api/pizzas
+        GET /api/pizzas/
         ```
     - Example Response:
         ```
@@ -351,14 +351,14 @@ create a `.env` file in the root directory and add the following environment var
         - Notes:
           - The response includes all pizzas, with detailed information about each pizza and its toppings. 
   - Get Pizza By ID
-    - Endpoint: `/api/pizza/:id`
+    - Endpoint: `/api/pizzas/:id`
     - Method: `GET`
     - Description: Retrieve a specific pizza by its IDs
     - Parameters:
       - `id` (integer): ID of the pizza
     - Example Request:
         ```
-        GET /api/pizza/1
+        GET /api/pizzas/1
         ``` 
     - Example Response:
         ```
@@ -395,6 +395,55 @@ create a `.env` file in the root directory and add the following environment var
           - If the pizza is not found, an appropriate error messages is returned
          
   
-  4. Toppings Endpoint
+4. Toppings Endpoint
+  - Add Topping
+    - Endpoint: `/api/toppings/add`
+    - Method: `POST`
+    - Description: Add a new topping
+    - Parameters:
+      - `name` (string): Name of the topping
+    - Example Request:
+      ```
+      {
+        "name": "Olives"
+      }
+      ``` 
+    - Example Response:
+      ```
+      {
+        "message": "Topping added successfully",
+        "topping": {
+          "id": 1,
+          "name": "Olives"
+        }
+      }
+      ```
+  - Get All Toppings
+    - Endpoint: `/api/toppings/`
+    - Method: `GET`
+    - Description: Retrieve all toppings
+    - Example Request:
+        ```
+        GET /api/toppings
+        ```
+    - Example Response:
+        ```
+        [
+          {
+            "id": 1,
+            "name": "Olives"
+          },
+          {
+            "id": 2,
+            "name": "Mushrooms"
+          },
+          {
+            "id": 3,
+            "name": "Pepperoni"
+          }
+        ]
+        ```
+        - Note:
+          - The response includes a list of all available toppings
 
 
