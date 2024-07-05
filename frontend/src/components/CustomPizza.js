@@ -52,7 +52,7 @@ const CustomPizza = ({ onCreatePizza }) => {
         <div className="container mx-auto p-4">
           <h2 className="text-3xl font-bold mb-4 text-center">Customize {pizza.name}</h2>
           <div className="bg-white shadow-md rounded-lg p-6 border border-gray-200">
-            <img src={pizza.image} alt={pizza.name} className="w-full h-64 object-cover mb-4 rounded-lg" />
+            <img src='https://www.superhealthykids.com/wp-content/uploads/2021/10/best-veggie-pizza-featured-image-square-2.jpg' alt={pizza.name} className="w-full h-64 object-cover mb-4 rounded-lg" />
             <h3 className="text-2xl font-semibold mb-4">Toppings</h3>
             <div className="grid grid-cols-2 gap-4">
               {toppings.map(topping => (
