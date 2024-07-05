@@ -15,16 +15,16 @@ const PizzaList = ({ onSelectPizza }) => {
     }, []);
 
     return (
-        <div>
-          <h2>Available Pizzas</h2>
-          <div className="pizza-list">
+        <div className='container mx-auto'>
+          <h2 className='text-3xl font-bold text-center my-8'>Available Pizzas</h2>
+          <div className="grid grid-cols-1 sm:grid-cols2 md:grid-cols-3 gap-8">
             {pizzas.map(pizza => (
-              <div key={pizza.id} className="pizza-item">
+              <div key={pizza.id} className="bg-white shadow-md rounded-lg p-4">
                 <img src='https://www.superhealthykids.com/wp-content/uploads/2021/10/best-veggie-pizza-featured-image-square-2.jpg' alt={pizza.name} />
-                <h3>{pizza.name}</h3>
-                <p>Toppings: {pizza.toppings.map(t => t.topping.name).join(', ')}</p>
+                <h2 className='text-xl font-semibold mt-4'>{pizza.name}</h2>
+                <p className='text-gray-600'>Toppings: {pizza.toppings.map(t => t.topping.name).join(', ')}</p>
                 <Link to={`/create-pizza/${pizza.id}`}>
-                  <button>Start Building</button>
+                  <button className='mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg'>Start Building</button>
                 </Link>
               </div>
             ))}

@@ -10,7 +10,7 @@ import Logout from './components/Logout';
 import ProtectedRoute from './ProtectedRoute';
 import { CartProvider } from './contexts/CartContext';
 import axios from 'axios';
-import './App.css';
+// import './App.css';
 import MyOrders from './components/MyOrders';
 
 
@@ -47,18 +47,19 @@ const App = () => {
     <CartProvider>
       <Router>
         <div>
-          <nav>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/cart">Cart</Link></li>
+          <nav className='bg-gray-800 p-6'>
+            <ul className='flex space-x-8 justify-center text-lg font-semibold'>
+              <li><Link to="/" className='text-white'>Home</Link></li>
+              <li><Link to="/cart" className='text-white'>Cart</Link></li>
               {/* <li><Link to="/order">Order</Link></li> */}
-              <li><Link to="/my-orders">My Orders</Link></li> 
-              <li><Link to="/register">Register</Link></li>
-              {userId ? (
-                <li><Link to="/logout" onClick={handleLogout}>Logout</Link></li>
+              <li><Link to="/my-orders" className='text-white'>My Orders</Link></li> 
+              <li><Link to="/register" className='text-white'>Register</Link></li>
+              {localStorage.getItem('userId') ? (
+                <li><Link to="/logout" className='text-white' onClick={handleLogout}>Logout</Link></li>
               ) : (
-                <li><Link to="/login">Login</Link></li>
-              )}            </ul>
+                <li><Link to="/login" className='text-white'>Login</Link></li>
+              )}            
+            </ul>
           </nav>
           <Routes>
             <Route path="/" element={<PizzaList />} />

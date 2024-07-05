@@ -41,6 +41,7 @@ const CustomPizza = ({ onCreatePizza }) => {
               topping: toppings.find(t => t.id === id)
             })))
           };
+          console.log("CUSTOMIZED PIZZA BHAI ", customizedPizza);
           addToCart(customizedPizza);
           navigate('/cart');
       };
@@ -48,21 +49,31 @@ const CustomPizza = ({ onCreatePizza }) => {
       if (!pizza) return <div>Loading...</div>;
 
       return (
-        <div>
-          <h2>Customize {pizza.name}</h2>
-          <div className="toppings-list">
-            {toppings.map(topping => (
-              <label key={topping.id}>
-                <input
-                  type="checkbox"
-                  value={topping.id}
-                  onChange={() => handleToppingChange(topping.id)}
-                />
-                {topping.name}
-              </label>
-            ))}
+        <div className="container mx-auto p-4">
+          <h2 className="text-3xl font-bold mb-4 text-center">Customize {pizza.name}</h2>
+          <div className="bg-white shadow-md rounded-lg p-6 border border-gray-200">
+            <img src={pizza.image} alt={pizza.name} className="w-full h-64 object-cover mb-4 rounded-lg" />
+            <h3 className="text-2xl font-semibold mb-4">Toppings</h3>
+            <div className="grid grid-cols-2 gap-4">
+              {toppings.map(topping => (
+                <label key={topping.id} className="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    checked={selectedToppings.includes(topping.id)}
+                    onChange={() => handleToppingChange(topping.id)}
+                    className="form-checkbox h-5 w-5 text-blue-600"
+                  />
+                  <span className="text-gray-700">{topping.name}</span>
+                </label>
+              ))}
+            </div>
+            <button
+              onClick={handleSubmit}
+              className="mt-6 w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300"
+            >
+              Add to Cart
+            </button>
           </div>
-          <button onClick={handleSubmit}>Add to Cart</button>
         </div>
       );
     };
