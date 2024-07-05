@@ -235,6 +235,166 @@ create a `.env` file in the root directory and add the following environment var
           - The `userId` is retrieved from the JWT token
           - The response includes all orders placed by the authenticated user, with detailed information about each pizza and its toppings, as well as the user who placed the order.   
          
-3. 
+3. Pizza Endpoints
+  - Add Pizza
+    - Endpoint: `/api/pizza`
+    - Method: `POST`
+    - Description: Add a new pizza with specified toppings
+    - Parameters:
+      - `name` (string): Name of the pizza
+      - `toppings` (array of integers): List of topping IDS to be added to the pizza
+    - Example Request:
+        ```
+        {
+          "name": "Hawaiian",
+          "toppings": [1, 2, 3]
+        }
+
+        ```
+    - Example Response:
+        ```
+        {
+          "message": "Pizza added successfully",
+          "pizza": {
+            "id": 1,
+            "name": "Hawaiian",
+            "toppings": [
+              {
+                "toppingId": 1,
+                "topping": {
+                  "id": 1,
+                  "name": "Pineapple"
+                }
+              },
+              {
+                "toppingId": 2,
+                "topping": {
+                  "id": 2,
+                  "name": "Ham"
+                }
+              },
+              {
+                "toppingId": 3,
+                "topping": {
+                  "id": 3,
+                  "name": "Cheese"
+                }
+              }
+            ]
+          }
+        }
+        ```
+        - Notes:
+          - The `toppings` array is validated to ensure all topping IDs exist.
+          - If any validation fails, appropriate error messages are returned
+             
+  - Get All Pizzas
+    - Endpoint: `/api/pizzas`
+    - Method: `GET`
+    - Description: Retrieve all pizzas with their respective toppings
+    - Example Request:
+        ```
+        GET /api/pizzas
+        ```
+    - Example Response:
+        ```
+        [
+            {
+              "id": 1,
+              "name": "Hawaiian",
+              "toppings": [
+                {
+                  "toppingId": 1,
+                  "topping": {
+                    "id": 1,
+                    "name": "Pineapple"
+                  }
+                },
+                {
+                  "toppingId": 2,
+                  "topping": {
+                    "id": 2,
+                    "name": "Ham"
+                  }
+                },
+                {
+                  "toppingId": 3,
+                  "topping": {
+                    "id": 3,
+                    "name": "Cheese"
+                  }
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "name": "Margherita",
+              "toppings": [
+                {
+                  "toppingId": 1,
+                  "topping": {
+                    "id": 1,
+                    "name": "Cheese"
+                  }
+                },
+                {
+                  "toppingId": 4,
+                  "topping": {
+                    "id": 4,
+                    "name": "Tomato"
+                  }
+                }
+              ]
+            }
+          ]
+        ```
+        - Notes:
+          - The response includes all pizzas, with detailed information about each pizza and its toppings. 
+  - Get Pizza By ID
+    - Endpoint: `/api/pizza/:id`
+    - Method: `GET`
+    - Description: Retrieve a specific pizza by its IDs
+    - Parameters:
+      - `id` (integer): ID of the pizza
+    - Example Request:
+        ```
+        GET /api/pizza/1
+        ``` 
+    - Example Response:
+        ```
+        {
+          "id": 1,
+          "name": "Hawaiian",
+          "toppings": [
+            {
+              "toppingId": 1,
+              "topping": {
+                "id": 1,
+                "name": "Pineapple"
+              }
+            },
+            {
+              "toppingId": 2,
+              "topping": {
+                "id": 2,
+                "name": "Ham"
+              }
+            },
+            {
+              "toppingId": 3,
+              "topping": {
+                "id": 3,
+                "name": "Cheese"
+              }
+            }
+          ]
+        }
+        ```  
+        - Notes:
+          - The response includes the specified pizza with detailed information about its toppings
+          - If the pizza is not found, an appropriate error messages is returned
+         
+  
+  4. Toppings Endpoint
 
 
