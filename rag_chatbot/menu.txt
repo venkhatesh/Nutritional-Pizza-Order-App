@@ -1,0 +1,69 @@
+Welcome to the Auto Pizza Ordering System!
+Menu Categories:
+
+Classic Pizzas
+Specialty Pizzas
+Create Your Own Pizza
+Sides and Beverages
+1. Classic Pizzas
+Margherita
+
+Ingredients: Tomato sauce, mozzarella, fresh basil
+Sizes: Small, Medium, Large
+Pepperoni
+
+Ingredients: Tomato sauce, mozzarella, pepperoni
+Sizes: Small, Medium, Large
+Veggie
+
+Ingredients: Tomato sauce, mozzarella, bell peppers, onions, mushrooms, olives
+Sizes: Small, Medium, Large
+2. Specialty Pizzas
+BBQ Chicken
+
+Ingredients: BBQ sauce, mozzarella, grilled chicken, red onions, cilantro
+Sizes: Small, Medium, Large
+Hawaiian
+
+Ingredients: Tomato sauce, mozzarella, ham, pineapple
+Sizes: Small, Medium, Large
+Meat Lovers
+
+Ingredients: Tomato sauce, mozzarella, pepperoni, sausage, bacon, ham
+Sizes: Small, Medium, Large
+3. Create Your Own Pizza
+Choose Your Size:
+
+Small
+Medium
+Large
+Choose Your Base:
+
+Tomato Sauce
+BBQ Sauce
+White Sauce
+Choose Your Cheese:
+
+Mozzarella
+Cheddar
+Parmesan
+Vegan Cheese
+Choose Your Toppings:
+
+Vegetables: Bell Peppers, Onions, Mushrooms, Olives, Spinach, Tomatoes
+Proteins: Pepperoni, Sausage, Bacon, Ham, Grilled Chicken
+Others: Pineapple, Jalapenos, Fresh Basil
+4. Sides and Beverages
+Garlic Bread
+
+Regular
+Cheesy
+Wings
+
+BBQ
+Buffalo
+Beverages
+
+Soda: Coke, Diet Coke, Sprite
+Water
+Juice
